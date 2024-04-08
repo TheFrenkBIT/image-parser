@@ -14,7 +14,7 @@ use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 class ImageParseController extends Controller
 {
     public function __construct(
-        private ImageParseService $imageParseService
+        private readonly ImageParseService $imageParseService
     )
     {
     }
