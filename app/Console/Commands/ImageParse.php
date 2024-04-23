@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Services\ImageParseService;
+use App\Services\ImageService;
 use Illuminate\Console\Command;
 
 class ImageParse extends Command
@@ -11,7 +11,7 @@ class ImageParse extends Command
 
     public function handle()
     {
-        app(ImageParseService::class)->parseImage();
+        app(ImageService::class)->consumeImage();
 
         $this->info('The command was successful!');
     }

@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('image/parse', 'ImageParseController@imageParse');
+Route::post('image/parse', 'ImageController@saveImageInQueue');

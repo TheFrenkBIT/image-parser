@@ -17,6 +17,9 @@ services:
     image: thecodingmachine/php:8.2-v4-fpm
     volumes:
       - .:/var/www/html
+    environment:
+      PHP_EXTENSION_PGSQL: 1
+      PHP_EXTENSION_PDO_PGSQL: 1
     networks:
       - app-network
 
@@ -30,6 +33,19 @@ services:
       POSTGRES_PASSWORD: root
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=root
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
     networks:
       - app-network
 

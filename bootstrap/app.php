@@ -11,6 +11,8 @@
 |
 */
 
+use PhpAmqpLib\Connection\AMQPStreamConnection;
+
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
@@ -41,7 +43,6 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
-$app->singleton(\App\Services\ImageParseService::class, \App\Services\ImageParseService::class);
 /*
 |--------------------------------------------------------------------------
 | Return The Application
